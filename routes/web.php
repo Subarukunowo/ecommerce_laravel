@@ -22,7 +22,10 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
     Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
     Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-    Route::get('/admin/product/detail/{id}',[ProductController::class, 'detail'])->name('product.detail');
+    Route::get('/admin/product/detail/{id}', [ProductController::class, 'detail'])->name('product.detail');
+    Route::get('/admin/products/edit/{id}', [ProductController::class, 'edit'])->name('product.edit'); // Halaman edit produk
+    Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('product.update'); // Proses update produk
+    Route::delete('/product/delete/{id}',[ProductController::class, 'delete'])->name('product.delete');
    
 // Product Route
 Route::get('/product', [ProductController::class,'index'])-> name('admin.product');
