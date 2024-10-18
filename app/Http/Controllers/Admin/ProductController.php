@@ -9,9 +9,11 @@ use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\File;
 
+
 class ProductController extends Controller
 {
-    
+   
+
     public function detail($id) {
     $product = Product::findOrFail($id);
 
@@ -48,7 +50,7 @@ public function update(Request $request, $id)
     ]);
     if ($validator-> fails()){
         Alert::error('Gagal','Pastikan semua terisi dengan benar!');
-        return redirect()->back;
+        return redirect()->back();
     }
     $product = Product::findorFail($id);
         

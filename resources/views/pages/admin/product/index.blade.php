@@ -34,6 +34,7 @@
                             <a href="{{ route('product.detail', $item->id) }}" class="badge badge-info">Detail</a>
                             <a href="{{ route('product.edit', $item->id) }}" class="badge badge-warning"> Edit </a>
                                <a href="{{ route('product.delete', $item->id) }}" class="badge badge-danger"
+                              
                                data-confirm-delete="true">Hapus</a>
                             </td> 
                         </tr> 
