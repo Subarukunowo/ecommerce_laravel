@@ -29,7 +29,7 @@
                         @php
                             $no = 0;
                         @endphp
-                        @forelse ($flashsale as $item)
+                        @forelse ($flashsales as $item)
                             <tr>
                                 <td>{{ $no += 1 }}</td>
                                 <td>{{ $item->product_name }}</td>

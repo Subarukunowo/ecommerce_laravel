@@ -15,17 +15,24 @@ class UserController extends Controller
     {
         // Ambil semua produk sebagai contoh
         $products = Product::all();
-        $flashsales = FlashSale::all();
-        return view('pages.user.index', compact('products', 'flashsales'));
+        $flashsale = FlashSale::all();
+        return view('pages.user.index', compact('products', 'flashsale'));
        
     }
 
     public function detail_product($id)
     {
         $products = Product::findOrFail($id);
-        return view('pages.user.detail', compact('product'));
+        return view('pages.user.detail', compact('products'));
 
     }
+    public function detail_flashsale($id)
+    {
+        $flashsale = FlashSale::findOrFail($id);
+        return view('pages.user.detail.flashsale', compact('flashsale'));
+    }
+
+    
     public function purchase($productId, $userId) {
         $product = Product::findOrFail($productId);
         $user = User::findOrFail($userId);

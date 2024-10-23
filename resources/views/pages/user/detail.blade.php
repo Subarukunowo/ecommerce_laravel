@@ -25,24 +25,24 @@ justify-content-end">
             <div class="row s_product_inner">
                 <div class="col-lg-6">
                     <div class="single-prd-item">
-                        <img class="img-fluid" src="{{ asset('images/' . $product->image)}}"
+                        <img class="img-fluid" src="{{ asset('images/' . $products->image)}}"
                             alt="">
                     </div>
                 </div>
                 <div class="col-lg-5 offset-lg-1">
                     <div class="s_product_text">
-                        <h3>{{ $product->name }}</h3>
-                        <h2>{{ $product->price }} Points</h2>
+                        <h3>{{ $products->name }}</h3>
+                        <h2>{{ $products->price }} Points</h2>
                         <ul class="list">
                             <li>
                                 <a class="active" href="#">
-                                    <span> Kategori</span> : {{ $product->category }} </a>
+                                    <span> Kategori</span> : {{ $products->category }} </a>
                             </li>
                         </ul>
-                        <p>{{ $product->description }}</p>
+                        <p>{{ $products->description }}</p>
                         <div class="card_area d-flex align-items-center">
                             <a class="primary-btn" href="javascript:void(0);"
-                                onclick="confirmPurchase('{{ $product->id }}', '{{ Auth::user()->id}}')"> Beli
+                                onclick="confirmPurchase('{{ $products->id }}', '{{ Auth::user()->id}}')"> Beli
                                 Produk</a>
                         </div>
                     </div>

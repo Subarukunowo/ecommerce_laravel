@@ -62,12 +62,24 @@ class DistributorController extends Controller
 
         return redirect()->route('admin.distributors.index');
     }
-
-    public function destroy($id)
+    public function detail($id)
     {
-        // Hapus data distributor
         $distributor = Distributor::findOrFail($id);
-        confirmDelete('Hapus Date', 'Apakah anda yakin ingin menghapus data ini?');
-        return redirect()->route('admin.distributors.index');
+        return view('pages.admin.distributors.detail', compact('distributor'));
+    }
+
+    public function delete($id)
+    {
+        $distributor = Distributor::findOrFail($id);
+        $distributor->delete();
+
+        if($distributor){
+            Alert::success('Berhasil!','Produk berhasil dihapus!');
+            return redirect()->back();
+         } else {
+            Alert::error('Gagal!','Produk gagal dihapus!');
+            return redirect()->back();
+         }
+       
     }
 }

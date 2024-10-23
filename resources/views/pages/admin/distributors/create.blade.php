@@ -1,32 +1,87 @@
 @extends('layouts.admin.main')
-
+@section('title', 'Admin Tambah Distributor')
 @section('content')
-<div class="container">
-    <h1>Tambah Distributor</h1>
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+            <h1>Tambah Distributor</h1>
+            <div class="section-header-breadcrumb">
+                <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
+                <div class="breadcrumb-item active"><a href="{{ route('admin.distributors.index') }}">Distributors</a></div>
+                <div class="breadcrumb-item">Tambah Distributor</div>
+            </div>
+        </div>
 
-    <form action="{{ route('distributor.store') }}" method="POST">
-        @csrf
-        <div class="form-group">
-            <label for="nama_distributor">Nama Distributor</label>
-            <input type="text" name="nama_distributor" class="form-control" required>
+        <a href="{{ route('admin.distributors.index') }}" class="btn btn-icon icon-left btn-warning">Kembali</a>
+
+        <div class="card mt-4">
+            <form action="{{ route('distributor.store') }}" class="needs-validation" novalidate enctype="multipart/form-data" method="POST">
+                @csrf
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Nama Distributor -->
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="nama_distributor">Nama Distributor</label>
+                                <input id="nama_distributor" type="text" class="form-control" name="nama_distributor" required>
+                                <div class="invalid-feedback">
+                                    Kolom ini harus diisi!
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kota -->
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="kota">Kota</label>
+                                <input id="kota" type="text" class="form-control" name="kota" required>
+                                <div class="invalid-feedback">
+                                    Kolom ini harus diisi!
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Provinsi -->
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="provinsi">Provinsi</label>
+                                <input id="provinsi" type="text" class="form-control" name="provinsi" required>
+                                <div class="invalid-feedback">
+                                    Kolom ini harus diisi!
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kontak -->
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="kontak">Kontak</label>
+                                <input id="kontak" type="text" class="form-control" name="kontak" required>
+                                <div class="invalid-feedback">
+                                    Kolom ini harus diisi!
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input id="email" type="email" class="form-control" name="email" required>
+                                <div class="invalid-feedback">
+                                    Kolom ini harus diisi dengan email yang valid!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Simpan -->
+                    <button type="submit" class="btn btn-icon icon-left btn-primary">
+                        <i class="fas fa-plus"></i> Tambah
+                    </button>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="kota">Kota</label>
-            <input type="text" name="kota" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="provinsi">Provinsi</label>
-            <input type="text" name="provinsi" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="kontak">Kontak</label>
-            <input type="text" name="kontak" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" name="email" class="form-control" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Simpan</button>
-    </form>
+    </section>
 </div>
 @endsection

@@ -39,17 +39,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="category">Kategori Produk</label>
-                                    <input id="category" type="text" class="form-control" name="category" required=""
-                                        value="{{ $product->category }}">
-                                    <div class="invalid-feedback">
-                                        Kolom ini harus di isi!
+                            <div class="form-group">
+                                <div>
+                                     <label for="category">Kategori Produk</label>
+                                     <input id="category" type="text" class="form-control" name="category" value="{{ old('category', $product->category ?? '') }}" required>
+                                  <div class="invalid-feedback">
+                                         Kolom ini harus diisi!
+                                      </div>
                                     </div>
                                 </div>
-                            </div>
-                            
+
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="description">Deskripsi Produk</label>

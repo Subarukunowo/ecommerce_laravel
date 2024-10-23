@@ -40,11 +40,16 @@
                         <td>{{ $item->provinsi }} </td>
                         <td>{{ $item->kontak }} </td>
                         <td>{{ $item->email }} </td>
-                        <td> <a href="{{ route('distributor.edit', $item->id) }}" class="badge badge-warning"> Edit </a>
-                                <a href="{{ route('distributor.delete', $item->id) }}" class="badge badge-danger"
-                                    data-confirm-delete="true">Hapus</a>
+                        <td>
+                        <a href="{{ route('distributor.detail', $item->id) }}" class="badge badge-info">Detail</a>
+                        <a href="{{ route('distributor.edit', $item->id) }}" class="badge badge-warning">Edit</a>
 
-                    </tr>
+<form action="{{ route('distributor.delete', $item->id) }}" method="POST" style="display:inline;">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="badge badge-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</button>
+</td>
+
                     @empty
                     <td colspan="5" class="text-center">Data Produk Kosong</td>
                     @endforelse

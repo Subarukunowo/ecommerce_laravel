@@ -15,9 +15,9 @@ class ProductController extends Controller
    
 
     public function detail($id) {
-    $product = Product::findOrFail($id);
-
-    return view('pages.admin.product.detail', compact('product'));
+        $product = Product::findOrFail($id);
+        return view('pages.admin.product.detail', compact('product'));
+        
 }
 public function delete($id){
     $product = Product::findOrFail($id);
@@ -98,7 +98,7 @@ public function update(Request $request, $id)
     $validator = Validator::make($request->all(), [
         'name' => 'required',
         'price' => 'numeric',
-        'category' => 'required',
+        'category' => 'required|string|max:255',
         'description' => 'required',
         'image' => 'required|mimes:png,jpeg,jpg',
     ]);
